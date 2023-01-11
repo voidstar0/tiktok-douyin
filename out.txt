@@ -1,0 +1,331 @@
+> ts-node src/index.ts
+
+// Check if _0x2c92ec LT 0
+Opcode 1->2:
+{
+  stack[++stackPointer] = _0x2c92ec < 1 || 1 !== _0x2c92ec && null;
+}
+
+/*
+  The end result of these operations is to zero out all but the least significant 8 bits of _0x4739a9, 
+  and then store the resulting value in the array called stack at the index stackPointer, 
+  and then increment stackPointer.
+
+  readInt8
+*/
+Opcode 3:
+{
+  _0x4739a9 = program[instructionPointer++];
+  stack[++stackPointer] = _0x4739a9 << 24 >> 24;
+}
+
+// readInt16
+Opcode 4:
+{
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  stack[++stackPointer] = _0x4739a9 << 16 >> 16;
+}
+Opcode 5:
+{
+  _0x4739a9 = ((_0x4739a9 = ((_0x4739a9 = program[instructionPointer++]) << 8) + program[instructionPointer++]) << 8) + program[instructionPointer++];
+  stack[++stackPointer] = (_0x4739a9 << 8) + program[instructionPointer++];
+}
+Opcode 6 -> 7:
+{ // TODO: what is _0x4be7fa
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  stack[++stackPointer] = _0x4be7fa[_0x4739a9];
+}
+Opcode 8 -> 10:
+{
+  stack[++stackPointer] = void 0;
+}
+Opcode 11:
+{
+  stack[++stackPointer] = _0x5a3048;
+}
+Opcode 12:
+{
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  stackPointer = stackPointer - _0x4739a9 + 1;
+  _0x44f21b = stack['slice'](stackPointer, stackPointer + _0x4739a9);
+  stack[stackPointer] = _0x44f21b;
+}
+Opcode 13:
+{
+  stack[++stackPointer] = {};
+}
+Opcode 14 -> 16:
+{
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  _0x44f21b = _0x4be7fa[_0x4739a9];
+  _0x195753 = stack[stackPointer--];
+  stack[stackPointer][_0x44f21b] = _0x195753;
+}
+Opcode 17:
+{
+  for (_0x44f21b = program[instructionPointer++], _0x195753 = program[instructionPointer++], _0x22e424 = _0x126c1d; _0x44f21b > 0; --_0x44f21b)
+    _0x22e424 = _0x22e424['p'];
+
+  stack[++stackPointer] = _0x22e424[_0x195753];
+}
+Opcode 18:
+{
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  _0x44f21b = _0x4be7fa[_0x4739a9];
+  stack[stackPointer] = stack[stackPointer][_0x44f21b];
+}
+Opcode 19:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer][_0x44f21b];
+}
+Opcode 20:
+{
+  // maybe loop stack depth
+  // to grab context
+  for (_0x44f21b = program[instructionPointer++], _0x195753 = program[instructionPointer++], _0x22e424 = _0x126c1d; _0x44f21b > 0; --_0x44f21b)
+    _0x22e424 = _0x22e424['p'];
+
+  _0x22e424[_0x195753] = stack[stackPointer--];
+}
+Opcode 21:
+{
+  _0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1];
+  instructionPointer += 2;
+  _0x44f21b = _0x4be7fa[_0x4739a9];
+  _0x195753 = stack[stackPointer--];
+  _0x22e424 = stack[stackPointer--];
+  _0x195753[_0x44f21b] = _0x22e424;
+}
+Opcode 22:
+{
+  _0x44f21b = stack[stackPointer--];
+  _0x195753 = stack[stackPointer--];
+  _0x22e424 = stack[stackPointer--];
+  _0x195753[_0x44f21b] = _0x22e424; // setProperty
+}
+Opcode 23:
+{
+  for (_0x44f21b = program[instructionPointer++], _0x195753 = program[instructionPointer++], _0x22e424 = _0x126c1d, _0x22e424 = _0x126c1d; _0x44f21b > 0; --_0x44f21b)
+    _0x22e424 = _0x22e424['p'];
+
+  stack[++stackPointer] = _0x22e424;
+  stack[++stackPointer] = _0x195753;
+}
+Opcode 24:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] += _0x44f21b;
+}
+Opcode 25:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] -= _0x44f21b;
+}
+Opcode 26:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] *= _0x44f21b;
+}
+Opcode 27:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] /= _0x44f21b;
+}
+Opcode 28 -> 32:
+{
+  stack[stackPointer] = -stack[stackPointer];
+}
+Opcode 33:
+{
+  _0x44f21b = stack[stackPointer--];
+  _0x195753 = stack[stackPointer--];
+  stack[++stackPointer] = _0x195753[_0x44f21b]++;
+}
+Opcode 34 -> 36:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] != _0x44f21b;
+}
+Opcode 37:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] === _0x44f21b;
+}
+Opcode 38:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] !== _0x44f21b;
+}
+Opcode 39 -> 40:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] < _0x44f21b;
+}
+Opcode 41:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] > _0x44f21b;
+}
+Opcode 42:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] >= _0x44f21b;
+}
+Opcode 43:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] << _0x44f21b;
+}
+Opcode 44 -> 45:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] >>> _0x44f21b;
+}
+Opcode 46:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] & _0x44f21b;
+}
+Opcode 47 -> 49:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] | _0x44f21b;
+}
+Opcode 50:
+{
+  stack[stackPointer] = !stack[stackPointer];
+}
+Opcode 53:
+{
+  _0x44f21b = stack[stackPointer--];
+  (_0x195753 = stack[stackPointer--])[_0x44f21b] = stack[stackPointer];
+}
+Opcode 54 -> 55:
+{
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] = stack[stackPointer] in _0x44f21b;
+}
+Opcode 56:
+{
+  void 0;
+}
+Opcode 57 -> 58:
+{
+  typeof stack[stackPointer];
+}
+Opcode 59: CREATE_SUBROUTINE
+{
+  _0x4739a9 = program[instructionPointer++];
+  _0x44f21b = stack[stackPointer--]; // pop from the stack
+  (_0x195753 = function _0x459219() {
+    var _0x130107 = _0x459219['_u'],
+        _0x31940e = _0x459219['_v'];
+    return _0x130107(_0x31940e[0], arguments, _0x31940e[1], _0x31940e[2], this);
+  })['_v'] = [_0x44f21b, _0x4739a9, _0x126c1d], _0x195753['_u'] = _0x3b3bfc;
+
+
+  stack[++stackPointer] = _0x195753; // push to the stack
+} 
+Opcode 60:
+{
+  _0x4739a9 = program[instructionPointer++];
+  _0x44f21b = stack[stackPointer--];
+  (_0x22e424 = [_0x195753 = function _0x5e4c0a() {
+    var _0x1f72b8 = _0x5e4c0a['_u'],
+        _0x5ebb14 = _0x5e4c0a['_v'];
+    return _0x1f72b8(_0x5ebb14[0], arguments, _0x5ebb14[1], _0x5ebb14[2], this);
+  }])['p'] = _0x126c1d, _0x195753['_v'] = [_0x44f21b, _0x4739a9, _0x22e424], _0x195753['_u'] = _0x3b3bfcl;
+  stack[++stackPointer] = _0x195753;
+}
+Opcode 61:
+{
+  _0x4739a9 = (_0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1]) << 16 >> 16;
+  instructionPointer += 2;
+  (_0x44f21b = _0x574c24[_0x574c24['length'] - 1])[1] = instructionPointer + _0x4739a9;
+}
+
+Opcode 66:
+{
+  for (_0x44f21b = stack[stackPointer--], _0x195753 = null; _0x22e424 = _0x574c24['pop']();) if (2 === _0x22e424[0] || 3 === _0x22e424[0]) {
+    _0x195753 = _0x22e424;
+    break;
+  }
+
+  if (_0x195753) {
+    _0x4cdfa2 = [1, _0x44f21b];
+    instructionPointer = _0x195753[2];
+    _0x195753[0] = 0;
+    _0x574c24['push'](_0x195753);
+  } else {
+    if (!_0x20f7c2)
+      return _0x44f21b;
+
+    instructionPointer = _0x20f7c2[1];
+    _0x5a3048 = _0x20f7c2[2];
+    _0x126c1d = _0x20f7c2[3];
+    _0x574c24 = _0x20f7c2[4];
+    stack[++stackPointer] = _0x44f21b;
+    _0x4cdfa2 = [0, null];
+    _0x20f7c2 = _0x20f7c2[0];
+  }
+}
+
+Opcode 65:
+{
+  stack[++stackPointer] = _0x44f21b['apply'](_0x22e424, _0x195753);
+}
+
+Opcode 68:
+{
+  for (_0x4739a9 = program[instructionPointer++], _0x22e424 = [void 0], _0x349fd9 = _0x4739a9; _0x349fd9 > 0; --_0x349fd9)
+    _0x22e424[_0x349fd9] = stack[stackPointer--];
+
+  _0x195753 = stack[stackPointer--];
+  _0x44f21b = Function['bind']['apply'](_0x195753, _0x22e424);
+  stack[++stackPointer] = new _0x44f21b();
+}
+
+Opcode 69 -> 70:
+{
+  instructionPointer += 2 + (_0x4739a9 = (_0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1]) << 16 >> 16);
+}
+
+Opcode 71:
+{
+  _0x4739a9 = (_0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1]) << 16 >> 16;
+  instructionPointer += 2;
+  (_0x44f21b = stack[stackPointer--]) || (instructionPointer += _0x4739a9);
+}
+
+Opcode 72:
+{
+  _0x4739a9 = (_0x4739a9 = (program[instructionPointer] << 8) + program[instructionPointer + 1]) << 16 >> 16;
+  instructionPointer += 2;
+  _0x44f21b = stack[stackPointer--];
+  stack[stackPointer] === _0x44f21b && (--stackPointer, instructionPointer += _0x4739a9);
+}
+
+Opcode 73:
+{
+  --stackPointer;
+}
+
+Opcode 74:
+{
+  _0x44f21b = stack[stackPointer];
+  stack[++stackPointer] = _0x44f21b;
+}
+
+Opcode 75:
+{
+  for (_0x22e424 in _0x44f21b = program[instructionPointer++], _0x195753 = stack[stackPointer--], _0x4739a9 = [], _0x195753)
+    _0x4739a9['push'](_0x22e424);
+
+  _0x126c1d[_0x44f21b] = _0x4739a9;
+}
